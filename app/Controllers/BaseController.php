@@ -49,4 +49,16 @@ class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
     }
+
+    /**
+     * loads pages inside template
+     * @param string $page
+     * @param array $data
+     */
+    public function template(string $page, array $data)
+    {
+        echo view('template/header', $data);
+        echo view($page, $data);
+        echo view('template/footer', $data);
+    }
 }

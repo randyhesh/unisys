@@ -6,6 +6,7 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('welcome_message');
+        $data['title'] = "Dashboard";
+        echo $this->template('/dashboard/admin_dashboard', $data);
     }
 }

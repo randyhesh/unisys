@@ -1,0 +1,32 @@
+CRITICAL - 2022-02-21 17:54:04 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 D:\xampp new\htdocs\unisys\system\CodeIgniter.php(219): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 D:\xampp new\htdocs\unisys\system\CodeIgniter.php(177): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 D:\xampp new\htdocs\unisys\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#3 D:\xampp new\htdocs\unisys\public\index.php(28): require('D:\\xampp new\\ht...')
+#4 {main}
+CRITICAL - 2022-02-21 18:40:31 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 D:\xampp new\htdocs\unisys\system\CodeIgniter.php(219): CodeIgniter\Exceptions\FrameworkException::forMissingExtension('intl')
+#1 D:\xampp new\htdocs\unisys\system\CodeIgniter.php(177): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 D:\xampp new\htdocs\unisys\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#3 D:\xampp new\htdocs\unisys\public\index.php(28): require('D:\\xampp new\\ht...')
+#4 {main}
+CRITICAL - 2022-02-21 22:53:25 --> Cannot call constructor
+#0 D:\xampp new\htdocs\unisys\system\CodeIgniter.php(802): App\Controllers\Channel_controller->__construct()
+#1 D:\xampp new\htdocs\unisys\system\CodeIgniter.php(403): CodeIgniter\CodeIgniter->createController()
+#2 D:\xampp new\htdocs\unisys\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\xampp new\htdocs\unisys\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-02-21 23:52:33 --> Cannot call constructor
+#0 D:\xampp new\htdocs\unisys\system\CodeIgniter.php(802): App\Controllers\Channel_controller->__construct()
+#1 D:\xampp new\htdocs\unisys\system\CodeIgniter.php(403): CodeIgniter\CodeIgniter->createController()
+#2 D:\xampp new\htdocs\unisys\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\xampp new\htdocs\unisys\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 D:\xampp new\htdocs\unisys\system\Commands\Server\rewrite.php(43): require_once('D:\\xampp new\\ht...')
+#5 {main}
+CRITICAL - 2022-02-21 23:54:32 --> Cannot call constructor
+#0 D:\xampp new\htdocs\unisys\system\CodeIgniter.php(802): App\Controllers\Channel_controller->__construct()
+#1 D:\xampp new\htdocs\unisys\system\CodeIgniter.php(403): CodeIgniter\CodeIgniter->createController()
+#2 D:\xampp new\htdocs\unisys\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 D:\xampp new\htdocs\unisys\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 D:\xampp new\htdocs\unisys\system\Commands\Server\rewrite.php(43): require_once('D:\\xampp new\\ht...')
+#5 {main}

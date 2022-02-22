@@ -1,6 +1,10 @@
 <?php
 
-class Channel_model extends CI_Model
+namespace App\Models\channel;
+
+use CodeIgniter\Model;
+
+class Channel_model extends Model
 {
 
     private $id;
