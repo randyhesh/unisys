@@ -27,14 +27,15 @@
                     <!-- small box -->
                     <div class="small-box bg-info">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3><?php echo $channels; ?></h3>
 
                             <p>Channels</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag"></i>
                         </div>
-                        <a href="<?php echo base_url('channel-list'); ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?php echo base_url('channel-list'); ?>" class="small-box-footer">More info <i
+                                    class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -42,14 +43,15 @@
                     <!-- small box -->
                     <div class="small-box bg-success">
                         <div class="inner">
-                            <h3>53</h3>
+                            <h3><?php echo $programs; ?></h3>
 
                             <p>Programs</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
                         </div>
-                        <a href="<?php echo base_url('program-list'); ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?php echo base_url('program-list'); ?>" class="small-box-footer">More info <i
+                                    class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -57,14 +59,15 @@
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h3>44</h3>
+                            <h3><?php echo $schedules; ?></h3>
 
                             <p>Schedules</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-calendar"></i>
                         </div>
-                        <a href="<?php echo base_url('schedule-list'); ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                        <a href="<?php echo base_url('schedule-list'); ?>" class="small-box-footer">More info <i
+                                    class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
