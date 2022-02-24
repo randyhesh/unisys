@@ -3,66 +3,102 @@
 namespace App\Controllers;
 
 use App\Models\channel\Channel_model;
-use App\Models\channel\Channel_service;
+use App\Models\country\Country_model;
 
 class Channels extends BaseController
 {
-    public function __construct()
-    {
-        parent::__construct();
-
-        $this->channel_model = new Channel_model();
-        var_dump($this->channel_model);
-        //$this->channel_service = new Channel_service();
-    }
-
+    /**
+     * load all channels
+     */
     public function index()
     {
-        $data['channels'] = $this->channel_service->get_all_channels();
+        $channel_model = new Channel_model();
+        $data['channels'] = $channel_model->select('channel.*,countries.country_name')
+            ->join('countries', 'countries.id=channel.country_id')->findAll();
+
         $data['title'] = "Manage Channels";
         echo $this->template('/channel/manage_channel', $data);
     }
 
-    function save_channel()
+    /**
+     * get add channel form
+     * @return string
+     */
+    public function get_channel_add_view()
     {
-        $channel_model = new Channel_model();
-        $channel_service = new Channel_service();
+        $data['title'] = "Add Channel";
 
-        $channel_model->set_name($this->input->post('name_text'));
-        $channel_model->set_age($this->input->post('age_text'));
+        $country_model = new Country_model();
+        $data['countries'] = $country_model->orderBy('country_name', 'ASC')->findAll();
 
-        echo $channel_service->insert_channel($channel_model);
+        echo $this->template('/channel/channel_add', $data);
     }
 
-    function load_edit_channel($id)
-    {
-
-        $channel_service = new Channel_service();
-        $data['channel'] = $channel_service->get_channel($id);
-
-        return $this->load->view('channel_views/edit_view', $data);
-    }
-
-    function delete_channel()
+    /**
+     * insert channel data
+     * @return \CodeIgniter\HTTP\ResponseInterface
+     */
+    public function store()
     {
         $channel_model = new Channel_model();
-        $channel_service = new Channel_service();
-
-        $channel_model->set_id($this->input->post('id'));
-
-        echo $channel_service->delete_channel($channel_model);
+        $data = [
+            'name' => $this->request->getVar('name'),
+            'country_id' => $this->request->getVar('country_id'),
+            'channel_url' => $this->request->getVar('channel_url')
+        ];
+        $channel_model->insert($data);
+        return $this->response->redirect(base_url('/channel-list'));
     }
 
-    function edit_channel()
+    /**
+     * get channel details
+     * @param null $id
+     * @return string
+     */
+    public function get_channel_details($id = null)
     {
-
         $channel_model = new Channel_model();
-        $channel_service = new Channel_service();
+        $country_model = new Country_model();
 
-        $channel_model->set_id($this->input->post('id_text'));
-        $channel_model->set_name($this->input->post('name_text'));
-        $channel_model->set_age($this->input->post('age_text'));
+        $data['title'] = "Edit Channel";
+        $data['channel_detail'] = $channel_model->where('id', $id)->first();
+        $data['countries'] = $country_model->orderBy('country_name', 'ASC')->findAll();
 
-        echo $channel_service->up($channel_model);
+        echo $this->template('/channel/channel_edit', $data);
+    }
+
+    /**
+     * update channel data
+     * @return \CodeIgniter\HTTP\ResponseInterface
+     */
+    public function update()
+    {
+        $channel_model = new Channel_model();
+        $id = $this->request->getVar('id');
+        $data = [
+            'name' => $this->request->getVar('name'),
+            'country_id' => $this->request->getVar('country_id'),
+            'channel_url' => $this->request->getVar('channel_url')
+        ];
+
+        $channel_model->update($id, $data);
+        return $this->response->redirect(base_url('/channel-list'));
+    }
+
+    /**
+     * update delete status
+     * @param null $id
+     * @return \CodeIgniter\HTTP\ResponseInterface
+     */
+    public function delete($id = null)
+    {
+        $channel_model = new Channel_model();
+
+        $data = [
+            'del_status' => 1
+        ];
+
+        $channel_model->update($id, $data);
+        return $this->response->redirect(base_url('/channel-list'));
     }
 }

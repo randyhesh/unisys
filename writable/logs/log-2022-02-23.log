@@ -1,0 +1,8 @@
+CRITICAL - 2022-02-23 20:16:44 --> count(): Parameter must be an array or an object that implements Countable
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'count(): Parame...', 'D:\\xampp new\\ht...', 52, Array)
+#1 D:\xampp new\htdocs\unisys\app\Controllers\Schedule.php(52): count(NULL)
+#2 D:\xampp new\htdocs\unisys\system\CodeIgniter.php(825): App\Controllers\Schedule->store()
+#3 D:\xampp new\htdocs\unisys\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Schedule))
+#4 D:\xampp new\htdocs\unisys\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 D:\xampp new\htdocs\unisys\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#6 {main}

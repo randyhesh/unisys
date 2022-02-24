@@ -32,7 +32,26 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-
+//Manage Channel
+$routes->get('channel-list', 'Channels::index');
+$routes->get('channel-add-view', 'Channels::get_channel_add_view');
+$routes->post('channel-save', 'Channels::store');
+$routes->get('channel-edit-view/(:num)', 'Channels::get_channel_details/$1');
+$routes->post('channel-update', 'Channels::update');
+$routes->get('channel-delete/(:num)', 'Channels::delete/$1');
+//Manage Program
+$routes->get('program-list', 'Programs::index');
+$routes->get('program-add-view', 'Programs::get_program_add_view');
+$routes->post('program-save', 'Programs::store');
+$routes->get('program-edit-view/(:num)', 'Programs::get_program_details/$1');
+$routes->post('program-update', 'Programs::update');
+$routes->get('program-delete/(:num)', 'Programs::delete/$1');
+$routes->post('program-list-channel', 'Programs::get_program_for_channel');
+$routes->post('program-detail', 'Programs::get_program_detail');
+//Manage Schedule
+$routes->get('schedule-list', 'Schedule::index');
+$routes->get('schedule-program', 'Schedule::get_schedule_program_view');
+$routes->post('schedule-save', 'Schedule::store');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
